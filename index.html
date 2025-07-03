@@ -600,7 +600,7 @@
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div><label for="name" class="block text-base font-medium text-gray-300">Full Name</label><input type="text" name="name" id="name" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
-                                <div><label for="email" class="block text-base font-medium text-gray-300">Email Address</label><input type="email" name="_replyto" id="email" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
+                                <div><label for="email" class="block text-base font-medium text-gray-300">Email Address</label><input type="email" name="email" id="email" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div><label for="phone" class="block text-base font-medium text-gray-300">Phone Number</label><input type="tel" name="phone" id="phone" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
@@ -612,6 +612,16 @@
                             </div>
                             <div><label for="message" class="block text-base font-medium text-gray-300">Why do you want to own a Grill to Go?</label><textarea name="message" id="message" rows="4" class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></textarea></div>
                             <div class="text-center"><button type="submit" class="btn btn-primary text-lg w-full md:w-auto">Submit Inquiry</button></div>
+			<input type="hidden" name="_captcha" value="false">
+			<input type="hidden" name="_replyto" id="_replyto">
+			<script>
+  			  // on submit, copy the visible email into the hidden _replyto
+  		  document.getElementById('franchise-form').addEventListener('submit', function() {
+   				  document.getElementById('_replyto').value =
+    			    document.getElementById('email').value;
+  			  });
+  			</script>
+ 			 <button type="submit" …>Submit Inquiry</button>
                         </form>
                         <div id="form-success-message" class="hidden mt-6 text-center bg-green-900/50 border border-accent text-accent p-4 rounded-md">Thank you! We have received your inquiry and will be in touch shortly.</div>
                     </div>
@@ -707,16 +717,6 @@
                 e.target.reset();
                 setTimeout(() => { newsletterSuccess.classList.add('hidden'); }, 3000);
             });
-            
-            // Franchise form submission
-            if (franchiseForm) {
-                franchiseForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    franchiseSuccessMessage.classList.remove('hidden');
-                    franchiseForm.reset();
-                    setTimeout(() => { franchiseSuccessMessage.classList.add('hidden'); }, 5000);
-                });
-            }
 
             // Intersection Observer for scroll animations
             const scrollObserver = new IntersectionObserver((entries) => {
