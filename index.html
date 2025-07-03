@@ -518,9 +518,9 @@
                         <h2 class="font-roboto-slab text-5xl menu-category">Fruit <span class="secondary">Desserts</span></h2>
                          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
                             <div class="menu-item-card"><img src="Food_Images/Mango.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">1/2 MANGO</h3><p class="menu-item-description">with Tajín, lime & salt</p><p class="price text-xl">£4.00</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Pineapple.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">6 PINEAPPLE SLICES</h3><p class="menu-item-description">with cinnamon sugar</p><p class="price text-xl">£3.50</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Pineapple.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">4 PINEAPPLE SLICES</h3><p class="menu-item-description">with cinnamon sugar</p><p class="price text-xl">£3.50</p></div></div>
                             <div class="menu-item-card"><img src="Food_Images/Peach.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">PEACH</h3><p class="menu-item-description">drizzled with honey</p><p class="price text-xl">£3.50</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Apple.png" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">1/2 APPLE</h3><p class="menu-item-description">tossed in cinnamon sugar</p><p class="price text-xl">£3.00</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Apple.png" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">APPLE</h3><p class="menu-item-description">tossed in cinnamon sugar</p><p class="price text-xl">£3.00</p></div></div>
                         </div>
                     </section>
                     
@@ -640,9 +640,22 @@
             </div>
             <div class="max-w-md mx-auto mb-8">
                 <p class="mb-4">Sign up for exclusive offers and news from the grill!</p>
-                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
-                    <input type="email" placeholder="Enter your email" required class="w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3">
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                <form
+  		    id="newsletter-form"
+  		    action="https://formspree.io/f/xpwrnbar"
+  		    method="POST"
+  		    class="flex flex-col sm:flex-row gap-2"
+		>
+                    <input
+ 			type="email"
+ 			name="_replyto"
+  			placeholder="Enter your email"
+  			required
+  			class="w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"
+			/>
+		    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Newsletter Signup">
+		    <button type="submit" class="btn btn-primary">Sign Up</button>
                 </form>
                  <p id="newsletter-success" class="text-accent mt-2 hidden">Thanks for signing up!</p>
             </div>
@@ -709,14 +722,6 @@
                     }
                 });
             }
-
-            // Newsletter form submission
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                newsletterSuccess.classList.remove('hidden');
-                e.target.reset();
-                setTimeout(() => { newsletterSuccess.classList.add('hidden'); }, 3000);
-            });
 
             // Intersection Observer for scroll animations
             const scrollObserver = new IntersectionObserver((entries) => {
