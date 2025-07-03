@@ -343,7 +343,7 @@
                             </p>
                             <p class="flex items-center justify-center md:justify-start mb-4 text-gray-300">
                                 <i class="fa-solid fa-phone w-6 text-center mr-3 secondary"></i>
-                                020 1234 5678
+                                +44 77 6632 9543
                             </p>
                             <div class="mt-6 pt-6 border-t border-gray-600">
                                 <h4 class="font-roboto-slab text-2xl secondary mb-3">Opening Hours</h4>
@@ -593,7 +593,12 @@
                     </div>
                     <div class="mt-20 max-w-3xl mx-auto bg-charcoal p-8 md:p-12 rounded-lg shadow-2xl">
                         <h2 class="font-roboto-slab text-4xl text-center primary">Request More Information</h2>
-                        <form id="franchise-form" class="mt-8 space-y-6">
+                        <form id="franchise-form"
+    			    action="https://formspree.io/f/xpwrnbar"
+    			    method="POST"
+    			    class="mt-8 space-y-6">
+			    <input type="hidden" name="_replyto" value="email">
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div><label for="name" class="block text-base font-medium text-gray-300">Full Name</label><input type="text" name="name" id="name" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
                                 <div><label for="email" class="block text-base font-medium text-gray-300">Email Address</label><input type="email" name="email" id="email" required class="mt-1 block w-full bg-charcoal-light border-gray-600 rounded-md shadow-sm focus:ring-secondary focus:border-secondary text-white p-3"></div>
