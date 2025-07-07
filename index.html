@@ -1,332 +1,332 @@
 <grilltogo-site html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grill to Go - The Healthiest Grill in the World</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        /* ------------------------- */
-        /* --- Base & Custom Theme --- */
-        /* ------------------------- */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #1a1a18;
-            color: #F2F2F2;
-        }
-
-        .font-roboto-slab { font-family: 'Roboto Slab', serif; }
-        .primary { color: #D1495B; }
-        .secondary { color: #EDAE49; }
-        .accent { color: #76B041; }
-        .bg-charcoal { background-color: #2B2A28; }
-        .bg-charcoal-light { background-color: #383735; }
-
-        /* ------------------------- */
-        /* -- Page & Animation FX -- */
-        /* ------------------------- */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ------------------------- */
-        /* --- Hero & Typewriter --- */
-        /* ------------------------- */
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Food_Images/Corn.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 90vh;
-        }
-
-        .typewriter-subtitle .text {
-            display: inline-block;
-            overflow: hidden;
-            border-right: .15em solid #EDAE49;
-            white-space: nowrap;
-            animation: typing 6.0s steps(50, end), blink-caret .75s step-end infinite;
-            animation-fill-mode: forwards;
-            letter-spacing: normal;
-        }
-
-        .typewriter-subtitle .text.finished {
-            border-right-color: transparent;
-            animation: none;
-        }
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grill to Go - The Healthiest Grill in the World</title>
         
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #EDAE49; } }
-
-        /* ------------------------- */
-        /* --- General Components --- */
-        /* ------------------------- */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-align: center;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: #D1495B;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #b83e4f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(209, 73, 91, 0.5);
-        }
-
-        .nav-link {
-            position: relative;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: #EDAE49;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link.active, .nav-link:hover { color: #EDAE49 !important; }
-        .nav-link.active:after, .nav-link:hover:after { width: 50%; left: 25%; }
-
-        /* ------------------------- */
-        /* ---- Menu Page Styles ---- */
-        /* ------------------------- */
-        .menu-category {
-            border-bottom: 2px solid #EDAE49;
-            padding-bottom: 1rem;
-            margin-bottom: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-align: center;
-            color: #D1495B;
-            scroll-margin-top: 160px; /* Offset for sticky nav */
-        }
-
-        .menu-item-card {
-            background-color: #383735;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-item-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .menu-item-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .menu-item-title {
-            font-weight: 700;
-            color: #FFFFFF;
-            font-family: 'Roboto Slab', serif;
-            letter-spacing: 0.05em;
-        }
-
-        .menu-item-description {
-            color: #d1d1d1;
-            flex-grow: 1;
-            line-height: 1.7;
-        }
-
-        .price {
-            font-family: 'Lato', sans-serif;
-            font-weight: 900;
-            color: #76B041;
-            margin-top: 1rem;
-        }
-
-        .shortcut-link {
-            color: #EDAE49;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 0.5rem 1rem;
-            border: 1px solid #EDAE49;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-        }
-
-        .shortcut-link:hover {
-            background-color: #EDAE49;
-            color: #2B2A28;
-            box-shadow: 0 0 15px rgba(237, 174, 73, 0.5);
-        }
-
-        .menu-sticky-nav {
-            position: sticky;
-            top: 72px; /* Height of main nav */
-            z-index: 40;
-            background-color: rgba(43, 42, 40, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .icon {
-            display: inline-block;
-            width: 1.2em;
-            height: 1.2em;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-            color: #D1495B;
-        }
-
-        .section-description {
-            text-align: center;
-            color: #d1d1d1;
-            margin: -1.5rem auto 2rem auto;
-            max-width: 80%;
-        }
-
-    </style>
-</head>
-
-<body class="antialiased">
-
-    <header id="main-header" class="bg-charcoal shadow-lg sticky top-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-roboto-slab text-3xl text-white tracking-wider" onclick="showPage('home')">GRILL TO GO</a>
-            <div class="hidden md:flex items-center space-x-4 text-lg">
-                <a data-page="home" class="nav-link text-gray-300 hover:text-white active" onclick="showPage('home')">Home</a>
-                <a data-page="menu" class="nav-link text-gray-300 hover:text-white" onclick="showPage('menu')">Menu</a>
-                <a data-page="franchise" class="nav-link text-gray-300 hover:text-white" onclick="showPage('franchise')">Franchise</a>
-                <a class="nav-link text-gray-300 hover:text-white" onclick="showPage('home', '#contact')">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-charcoal-light">
-            <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('home')">Home</a>
-            <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('menu')">Menu</a>
-            <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('franchise')">Franchise</a>
-            <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('home', '#contact')">Contact</a>
-        </div>
-    </header>
-
-    <main>
-        <div id="home" class="page-section active">
-            <section class="hero-bg text-white text-center h-screen flex flex-col justify-center items-center">
-                <div class="container mx-auto px-6">
-                    <h1 class="font-roboto-slab text-5xl md:text-8xl tracking-wider leading-tight">GRILL TO GO</h1>
-                    <div class="typewriter-subtitle text-xl md:text-3xl secondary mt-4 italic">
-                        <span class="text">The Healthiest Grill in the World</span>
-                    </div>
-                    <p class="max-w-3xl mx-auto mt-6 text-lg text-gray-300 reveal-on-scroll">Experience the revolution of flavor. We combine timeless grilling traditions with modern technology to bring you meals that are both delicious and wholesome.</p>
-                    <div class="mt-10 reveal-on-scroll">
-                        <a href="#" class="btn btn-primary text-xl" onclick="showPage('menu')">Explore The Menu</a>
-                    </div>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <style>
+            /* ------------------------- */
+            /* --- Base & Custom Theme --- */
+            /* ------------------------- */
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            body {
+                font-family: 'Lato', sans-serif;
+                background-color: #1a1a18;
+                color: #F2F2F2;
+            }
+            
+            .font-roboto-slab { font-family: 'Roboto Slab', serif; }
+            .primary { color: #D1495B; }
+            .secondary { color: #EDAE49; }
+            .accent { color: #76B041; }
+            .bg-charcoal { background-color: #2B2A28; }
+            .bg-charcoal-light { background-color: #383735; }
+            
+            /* ------------------------- */
+            /* -- Page & Animation FX -- */
+            /* ------------------------- */
+            .page-section {
+                display: none;
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            
+            .page-section.active {
+                display: block;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .reveal-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            
+            .reveal-on-scroll.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* ------------------------- */
+            /* --- Hero & Typewriter --- */
+            /* ------------------------- */
+            .hero-bg {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Food_Images/Corn.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                height: 90vh;
+            }
+            
+            .typewriter-subtitle .text {
+                display: inline-block;
+                overflow: hidden;
+                border-right: .15em solid #EDAE49;
+                white-space: nowrap;
+                animation: typing 6.0s steps(50, end), blink-caret .75s step-end infinite;
+                animation-fill-mode: forwards;
+                letter-spacing: normal;
+            }
+            
+            .typewriter-subtitle .text.finished {
+                border-right-color: transparent;
+                animation: none;
+            }
+            
+            @keyframes typing { from { width: 0 } to { width: 100% } }
+            @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #EDAE49; } }
+            
+            /* ------------------------- */
+            /* --- General Components --- */
+            /* ------------------------- */
+            .btn {
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 0.05em;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-primary {
+                background-color: #D1495B;
+                color: white;
+            }
+            
+            .btn-primary:hover {
+                background-color: #b83e4f;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(209, 73, 91, 0.5);
+            }
+            
+            .nav-link {
+                position: relative;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                border-radius: 0.375rem;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            }
+            
+            .nav-link:after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: -5px;
+                width: 0;
+                height: 2px;
+                background-color: #EDAE49;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-link.active, .nav-link:hover { color: #EDAE49 !important; }
+            .nav-link.active:after, .nav-link:hover:after { width: 50%; left: 25%; }
+            
+            /* ------------------------- */
+            /* ---- Menu Page Styles ---- */
+            /* ------------------------- */
+            .menu-category {
+                border-bottom: 2px solid #EDAE49;
+                padding-bottom: 1rem;
+                margin-bottom: 2.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                text-align: center;
+                color: #D1495B;
+                scroll-margin-top: 160px; /* Offset for sticky nav */
+            }
+            
+            .menu-item-card {
+                background-color: #383735;
+                border-radius: 0.75rem;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .menu-item-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            }
+            
+            .menu-item-content {
+                padding: 1.5rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .menu-item-title {
+                font-weight: 700;
+                color: #FFFFFF;
+                font-family: 'Roboto Slab', serif;
+                letter-spacing: 0.05em;
+            }
+            
+            .menu-item-description {
+                color: #d1d1d1;
+                flex-grow: 1;
+                line-height: 1.7;
+            }
+            
+            .price {
+                font-family: 'Lato', sans-serif;
+                font-weight: 900;
+                color: #76B041;
+                margin-top: 1rem;
+            }
+            
+            .shortcut-link {
+                color: #EDAE49;
+                text-decoration: none;
+                font-weight: 700;
+                padding: 0.5rem 1rem;
+                border: 1px solid #EDAE49;
+                border-radius: 9999px;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                font-size: 0.875rem;
+                letter-spacing: 0.05em;
+            }
+            
+            .shortcut-link:hover {
+                background-color: #EDAE49;
+                color: #2B2A28;
+                box-shadow: 0 0 15px rgba(237, 174, 73, 0.5);
+            }
+            
+            .menu-sticky-nav {
+                position: sticky;
+                top: 72px; /* Height of main nav */
+                z-index: 40;
+                background-color: rgba(43, 42, 40, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            
+            .icon {
+                display: inline-block;
+                width: 1.2em;
+                height: 1.2em;
+                margin-left: 0.5rem;
+                vertical-align: middle;
+                color: #D1495B;
+            }
+            
+            .section-description {
+                text-align: center;
+                color: #d1d1d1;
+                margin: -1.5rem auto 2rem auto;
+                max-width: 80%;
+            }
+            
+        </style>
+    </head>
+    
+    <body class="antialiased">
+        
+        <header id="main-header" class="bg-charcoal shadow-lg sticky top-0 z-50 transition-all duration-300">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="font-roboto-slab text-3xl text-white tracking-wider" onclick="showPage('home')">GRILL TO GO</a>
+                <div class="hidden md:flex items-center space-x-4 text-lg">
+                    <a data-page="home" class="nav-link text-gray-300 hover:text-white active" onclick="showPage('home')">Home</a>
+                    <a data-page="menu" class="nav-link text-gray-300 hover:text-white" onclick="showPage('menu')">Menu</a>
+                    <a data-page="franchise" class="nav-link text-gray-300 hover:text-white" onclick="showPage('franchise')">Franchise</a>
+                    <a class="nav-link text-gray-300 hover:text-white" onclick="showPage('home', '#contact')">Contact</a>
                 </div>
-            </section>
-
-            <section class="py-20 bg-charcoal-light">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="font-roboto-slab text-4xl md:text-5xl primary reveal-on-scroll">The RoboGrill Difference</h2>
-                        <p class="max-w-3xl mx-auto mt-4 text-lg text-gray-400 reveal-on-scroll">Our secret isn't just a recipe—it's technology. Every single item on our menu is cooked on the RoboGrill.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        <div class="reveal-on-scroll text-center bg-charcoal p-8 rounded-lg">
-                            <img src="Webs/Robo2.jpg" alt="Perfectly Grilled" class="rounded-lg shadow-lg mb-4 w-full">
-                            <h3 class="font-roboto-slab text-2xl secondary">Perfectly Grilled, Every Time</h3>
-                            <p class="mt-2 text-gray-400 text-base">Our automated tech ensures flawless consistency and a perfect char on everything from steaks to desserts.</p>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="hidden md:hidden bg-charcoal-light">
+                <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('home')">Home</a>
+                <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('menu')">Menu</a>
+                <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('franchise')">Franchise</a>
+                <a class="block text-gray-300 hover:text-white px-6 py-3" onclick="showPage('home', '#contact')">Contact</a>
+            </div>
+        </header>
+        
+        <main>
+            <div id="home" class="page-section active">
+                <section class="hero-bg text-white text-center h-screen flex flex-col justify-center items-center">
+                    <div class="container mx-auto px-6">
+                        <h1 class="font-roboto-slab text-5xl md:text-8xl tracking-wider leading-tight">GRILL TO GO</h1>
+                        <div class="typewriter-subtitle text-xl md:text-3xl secondary mt-4 italic">
+                            <span class="text">The Healthiest Grill in the World</span>
                         </div>
-                        <div class="reveal-on-scroll order-first md:order-none" style="transition-delay: 200ms;">
-                            <div class="text-center">
-                                <div class="video-container aspect-[3/4] max-w-s mx-auto shadow-2xl rounded-lg">
-                                    <video src="Webs/Iman_grill.mp4" autoplay loop muted playsinline></video>
+                        <p class="max-w-3xl mx-auto mt-6 text-lg text-gray-300 reveal-on-scroll">Experience the revolution of flavor. We combine timeless grilling traditions with modern technology to bring you meals that are both delicious and wholesome.</p>
+                        <div class="mt-10 reveal-on-scroll">
+                            <a href="#" class="btn btn-primary text-xl" onclick="showPage('menu')">Explore The Menu</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="py-20 bg-charcoal-light">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h2 class="font-roboto-slab text-4xl md:text-5xl primary reveal-on-scroll">The RoboGrill Difference</h2>
+                            <p class="max-w-3xl mx-auto mt-4 text-lg text-gray-400 reveal-on-scroll">Our secret isn't just a recipe—it's technology. Every single item on our menu is cooked on the RoboGrill.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                            <div class="reveal-on-scroll text-center bg-charcoal p-8 rounded-lg">
+                                <img src="Webs/Robo2.jpg" alt="Perfectly Grilled" class="rounded-lg shadow-lg mb-4 w-full">
+                                <h3 class="font-roboto-slab text-2xl secondary">Perfectly Grilled, Every Time</h3>
+                                <p class="mt-2 text-gray-400 text-base">Our automated tech ensures flawless consistency and a perfect char on everything from steaks to desserts.</p>
+                            </div>
+                            <div class="reveal-on-scroll order-first md:order-none" style="transition-delay: 200ms;">
+                                <div class="text-center">
+                                    <div class="video-container aspect-[3/4] max-w-s mx-auto shadow-2xl rounded-lg">
+                                        <video src="Webs/Iman_grill.mp4" autoplay loop muted playsinline></video>
+                                    </div>
+                                    <h3 class="font-roboto-slab text-2xl primary mt-6">Innovation On Your Plate</h3>
+                                    <p class="mt-2 text-gray-400 text-base">Experience the delicious future of food with our one-of-a-kind, all-grilled menu.</p>
                                 </div>
-                                <h3 class="font-roboto-slab text-2xl primary mt-6">Innovation On Your Plate</h3>
-                                <p class="mt-2 text-gray-400 text-base">Experience the delicious future of food with our one-of-a-kind, all-grilled menu.</p>
+                            </div>
+                            <div class="reveal-on-scroll text-center bg-charcoal p-8 rounded-lg" style="transition-delay: 400ms;">
+                                <img src="Food_Images/Lamb_Shish.jpg" alt="Healthy Flavor" class="rounded-lg shadow-lg mb-4 w-full">
+                                <h3 class="font-roboto-slab text-2xl secondary">Healthier & More Flavorful</h3>
+                                <p class="mt-2 text-gray-400 text-base">Grilling reduces heavy oils and locks in natural flavors, offering a guilt-free meal that doesn't compromise on taste.</p>
                             </div>
                         </div>
-                        <div class="reveal-on-scroll text-center bg-charcoal p-8 rounded-lg" style="transition-delay: 400ms;">
-                            <img src="Food_Images/Lamb_Shish.jpg" alt="Healthy Flavor" class="rounded-lg shadow-lg mb-4 w-full">
-                            <h3 class="font-roboto-slab text-2xl secondary">Healthier & More Flavorful</h3>
-                            <p class="mt-2 text-gray-400 text-base">Grilling reduces heavy oils and locks in natural flavors, offering a guilt-free meal that doesn't compromise on taste.</p>
+                    </div>
+                </section>
+                
+                <section class="py-16 bg-black">
+                    <div class="container mx-auto px-6 text-center reveal-on-scroll">
+                        <p class="text-base uppercase tracking-widest text-gray-500">A Revolutionary Partnership</p>
+                        <div class="flex items-center justify-center gap-4 mt-4">
+                            <svg class="w-8 h-8 secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.004.827c-.292.24-.437.613-.43.992a6.759 6.759 0 010 1.25c.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.333.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437.613-.43.992a6.759 6.759 0 010-1.25c-.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <h3 class="font-roboto-slab text-3xl primary tracking-wider">Powered by RoboGrill</h3>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section class="py-16 bg-black">
-                <div class="container mx-auto px-6 text-center reveal-on-scroll">
-                    <p class="text-base uppercase tracking-widest text-gray-500">A Revolutionary Partnership</p>
-                    <div class="flex items-center justify-center gap-4 mt-4">
-                        <svg class="w-8 h-8 secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.004.827c-.292.24-.437.613-.43.992a6.759 6.759 0 010 1.25c.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.333.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437.613-.43.992a6.759 6.759 0 010-1.25c-.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <h3 class="font-roboto-slab text-3xl primary tracking-wider">Powered by RoboGrill</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="py-20 bg-charcoal">
-                <div class="container mx-auto px-6 reveal-on-scroll">
-                    <h2 class="font-roboto-slab text-4xl md:text-5xl primary text-center">Visit or Call Us</h2>
-                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="w-full h-96 md:h-full rounded-lg shadow-xl overflow-hidden bg-charcoal-light">
-                            <iframe
+                </section>
+                
+                <section id="contact" class="py-20 bg-charcoal">
+                    <div class="container mx-auto px-6 reveal-on-scroll">
+                        <h2 class="font-roboto-slab text-4xl md:text-5xl primary text-center">Visit or Call Us</h2>
+                        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div class="w-full h-96 md:h-full rounded-lg shadow-xl overflow-hidden bg-charcoal-light">
+                                <iframe
                                 width="100%"
                                 height="100%"
                                 frameborder="0" style="border:0"
@@ -360,129 +360,242 @@
                 </div>
             </section>
         </div>
-
+        
         <div id="menu" class="page-section bg-charcoal">
             <div class="container mx-auto p-4 md:p-8 max-w-7xl">
                 <header class="text-center my-8 md:my-12">
                     <h1 class="font-roboto-slab text-6xl md:text-7xl text-white tracking-wider">Our Menu</h1>
                     <p class="text-xl md:text-2xl secondary mt-2 italic">Crafted for flavour, grilled for health.</p>
                 </header>
-
+                
                 <nav class="menu-sticky-nav">
                     <div class="flex flex-wrap justify-center gap-x-4 gap-y-3">
                         <a href="#kebabs" class="shortcut-link">Kebabs</a>
-                        <a href="#skewers" class="shortcut-link">Skewers</a> <a href="#burgers" class="shortcut-link">Burgers</a>
+                        <a href="#skewers" class="shortcut-link">Skewers</a>
+                        <a href="#chicken" class="shortcut-link">Chicken</a>
                         <a href="#steaks" class="shortcut-link">Steaks</a>
+                        <a href="#burgers" class="shortcut-link">Burgers</a>
                         <a href="#fish" class="shortcut-link">Fish</a>
-                        <a href="#shawarma" class="shortcut-link">Shawarma</a>
-                        <a href="#wings" class="shortcut-link">Wings</a>
-                        <a href="#signatures" class="shortcut-link">Signatures</a>
+                        <a href="#main-ish" class="shortcut-link">Main-ish</a>
+                        <a href="#signature-sides" class="shortcut-link">Sides</a>
+                        <a href="#sauces" class="shortcut-link">Sauces</a>
                         <a href="#desserts" class="shortcut-link">Desserts</a>
                         <a href="#mojitos" class="shortcut-link">Drinks</a>
                     </div>
                 </nav>
-
-                <div class="bg-[#383735] rounded-lg p-6 mt-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 text-center gap-y-4">
-                        <div class="md:border-r md:border-gray-600 md:pr-6">
-                            <p class="text-lg">All Mains come with In-House Turkish Bread & a Sauce.</p>
-                            <p class="mt-2 secondary">Extra Bread - <span class="accent font-bold">£1.50</span></p>
-                        </div>
-                        <div>
-                            <p class="text-lg">Add a Fresh Salad to any Main.</p>
-                            <p class="mt-2 secondary">Salad Box - <span class="accent font-bold">£1.50</span></p>
+                
+                <div class="bg-charcoal my-8 p-6 md:p-8 rounded-xl border-2 border-gray-700">
+                    <div class="text-center">
+                        <h2 class="font-roboto-slab text-2xl md:text-3xl text-white tracking-wider">All Mains Include:</h2>
+                        <p class="text-secondary text-lg mt-1">FREE In‑House Turkish Bread &amp; a Sauce of Your Choice!</p>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-roboto-slab text-xl md:text-2xl text-center primary mb-5 tracking-wide uppercase">Upgrade Your Meal</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center">
+                            
+                            <div class="bg-charcoal-light p-4 rounded-lg border border-gray-700 hover:border-accent hover:scale-105 transition-all duration-300">
+                                <p class="font-roboto-slab text-3xl md:text-4xl secondary font-bold tracking-tighter">+2</p>
+                                <p class="text-lg text-white font-semibold uppercase mt-1">Sides</p>
+                                <div class="mt-3 bg-gray-800 inline-block px-4 py-1 rounded-full">
+                                    <span class="text-xl md:text-2xl font-bold accent">£5.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-charcoal-light p-4 rounded-lg border border-gray-700 hover:border-accent hover:scale-105 transition-all duration-300">
+                                <p class="font-roboto-slab text-3xl md:text-4xl secondary font-bold tracking-tighter">+4</p>
+                                <p class="text-lg text-white font-semibold uppercase mt-1">Sides</p>
+                                <div class="mt-3 bg-gray-800 inline-block px-4 py-1 rounded-full">
+                                    <span class="text-xl md:text-2xl font-bold accent">£9.50</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-charcoal-light p-4 rounded-lg border border-gray-700 hover:border-secondary hover:scale-105 transition-all duration-300">
+                                <p class="font-roboto-slab text-3xl md:text-4xl secondary font-bold tracking-tighter">+1</p>
+                                <p class="text-lg text-white font-semibold uppercase mt-1">Extra Bread</p>
+                                <div class="mt-3 bg-gray-800 inline-block px-4 py-1 rounded-full">
+                                    <span class="text-xl md:text-2xl font-bold accent">£1.50</span>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
                 
                 <div class="mt-12 space-y-16">
+                    
                     <section id="kebabs">
                         <h2 class="font-roboto-slab text-5xl menu-category">Kebabs</h2>
                         <p class="section-description">Minced and spiced, shaped onto the skewer. Served as a wrap or alongside Turkish bread. <span class="secondary">(+£3.00 per extra skewer)</span></p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="menu-item-card"><img src="Food_Images/Koubideh.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">KOUBIDEH KEBAB</h3><p class="menu-item-description mt-2">Spiced, minced beef shaped onto skewers.</p><p class="price text-2xl">£4.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Adana-Kebab.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><div class="flex items-center"><h3 class="text-3xl menu-item-title">ADANA KEBAB</h3><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.25 2.25a.75.75 0 011.5 0v.093c.245.022.486.06.718.114.23.054.45.128.657.224 1.112.54 1.833 1.716 1.833 3.069v1.286c0 .851.34 1.636.93 2.22l.428.427a2.25 2.25 0 003.182 0l.427-.427a3.002 3.002 0 00.93-2.22V5.75c0-1.353.72-2.529 1.833-3.069.207-.096.427-.17.657-.224.232-.054.473-.092.718-.114V2.25a.75.75 0 011.5 0v.142c-.01.002-.02.004-.03.006-.28.05-.542.13-.786.248-1.42.69-2.433 2.12-2.433 3.854v1.286c0 .425-.17.83-.464 1.124l-.428.427a.75.75 0 01-1.06 0l-.427-.427a1.5 1.5 0 01-.464-1.124V5.75c0-1.733-1.013-3.164-2.433-3.854A8.953 8.953 0 005.28 2.4a.75.75 0 01-.03-.006V2.25zM10 16a.75.75 0 00-.75.75v.093c.245.022.486.06.718.114.23.054.45.128.657.224 1.112.54 1.833 1.716 1.833 3.069v.25a.75.75 0 001.5 0v-.25c0-1.353-.72-2.529-1.833-3.069a7.46 7.46 0 00-1.375-.338.75.75 0 00-.75-.75z" clip-rule="evenodd" /></svg></div><p class="menu-item-description mt-2">Spicy minced lamb with red pepper flakes.</p><p class="price text-2xl">£4.95</p></div></div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Koubideh.jpg" alt="Koubideh" class="w-full h-48 object-cover">
+                                <div class="menu-item-content"><h3 class="text-3xl menu-item-title">KOUBIDEH KEBAB</h3><p class="menu-item-description mt-2">Spiced, minced beef shaped onto skewers.</p><p class="price text-2xl">£4.95</p></div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Adana-Kebab.jpg" alt="Adana Kebab" class="w-full h-48 object-cover">
+                                <div class="menu-item-content"><h3 class="text-3xl menu-item-title flex items-center gap-2">ADANA KEBAB</h3><p class="menu-item-description mt-2">Spicy minced lamb with red pepper flakes.</p><p class="price text-2xl">£4.95</p></div>
+                            </div>
                         </div>
                     </section>
                     
                     <section id="skewers">
                         <h2 class="font-roboto-slab text-5xl menu-category">Skewers</h2>
                         <p class="section-description">Tender chunks of marinated meat, grilled on a skewer. Served as a wrap or alongside Turkish bread. <span class="secondary">(+£3.50 per extra skewer)</span></p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="menu-item-card"><img src="Food_Images/Beef_Shish.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">BEEF SHISH</h3><p class="price text-2xl">£5.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Lamb_Shish.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">LAMB SHISH</h3><p class="price text-2xl">£5.75</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Chicken_Shish.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">CHICKEN SHISH</h3><p class="price text-2xl">£5.50</p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                            <div class="menu-item-card"><img src="Food_Images/Lamb_Shish.jpg" alt="Lamb Shish" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">LAMB SHISH</h3><p class="price text-2xl">£5.75</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Chicken_Shish.jpg" alt="Chicken Shish" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-3xl menu-item-title">CHICKEN SHISH</h3><p class="price text-2xl">£5.50</p></div></div>
                         </div>
                     </section>
-
-                    <section id="shawarma">
-                        <h2 class="font-roboto-slab text-5xl menu-category">Shawarma</h2>
-                        <p class="section-description">Seasoned, slow-roasted, shaved thin and piled high. Served as a wrap or alongside Turkish bread.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="menu-item-card"><img src="Food_Images/Lamb-Shawarma.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">LAMB SHAWARMA</h3><p class="menu-item-description mt-2">Rich, marinated lamb, shaved thin and piled high. A true classic.</p><p class="price text-2xl">Small: £8.50<span class="text-gray-400 mx-2">|</span>Large: £11.50</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Chicken-Shawarma.jpg" class="w-full h-48 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">CHICKEN SHAWARMA</h3><p class="menu-item-description mt-2">Juicy, spiced chicken, slow-roasted and perfectly seasoned.</p><p class="price text-2xl">Small: £7.50<span class="text-gray-400 mx-2">|</span>Large: £10.00</p></div></div>
+                    
+                    <section id="chicken">
+                        <h2 class="font-roboto-slab text-5xl menu-category">Chicken &amp; Wings</h2>
+                        <p class="section-description">Flame‑grilled on the bone or on the wing. Served with Turkish bread.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Wings.png" alt="Grilled Wings" class="w-full h-48 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-3xl menu-item-title">GRILLED WINGS</h3>
+                                    <p class="menu-item-description mt-2">Turkish-spiced, smoky crisp.</p>
+                                    <div class="flex-grow"></div>
+                                    <div>
+                                        <p class="price text-2xl mt-2">6 Wings: £5.95</p>
+                                        <p class="price text-2xl mt-2">12 Wings: £10.95</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/quarter_chicken.png" alt="Quarter Chicken" class="w-full h-48 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-3xl menu-item-title">1/4 CHICKEN</h3>
+                                    <p class="menu-item-description mt-2">Breast or leg — your call.</p>
+                                    <p class="price text-2xl">£5.50</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/half_chicken.png" alt="Half Chicken" class="w-full h-48 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-3xl menu-item-title">1/2 CHICKEN</h3>
+                                    <p class="menu-item-description mt-2">A breast and a leg, perfectly seasoned.</p>
+                                    <p class="price text-2xl">£8.95</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-4xl mx-auto bg-charcoal-light rounded-lg overflow-hidden mt-8">
+                            <div class="md:grid md:grid-cols-12">
+                                <div class="p-8 flex flex-col justify-center md:col-span-7 text-center md:text-left">
+                                    <h3 class="text-4xl menu-item-title"><span class="secondary">WHOLE CHICKEN</span></h3>
+                                    <p class="text-xl mt-2 text-gray-400">Two breasts, two legs — family time.</p>
+                                    <p class="price text-2xl">£16.50</p>
+                                </div>
+                                <div class="md:col-span-5">
+                                    <img src="Food_Images/whole_chicken.png" alt="Whole Chicken" class="w-full h-56 md:h-full object-cover">
+                                </div>
+                            </div>
                         </div>
                     </section>
                     
                     <section id="steaks">
                         <h2 class="font-roboto-slab text-5xl menu-category">Steaks</h2>
-                        <p class="section-description">230g (8 oz) prime steak, masterfully seasoned and grilled. Served with warm, freshly baked Turkish bread.</p>
+                        <p class="section-description">230g (8 oz) prime steak, masterfully seasoned and grilled. Served with Turkish bread.</p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="menu-item-card"><img src="Food_Images/Sirloin.png" alt="Sirloin Steak" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SIRLOIN</h3><p class="menu-item-description mt-2">Known for its perfect balance of lean muscle and subtle marbling, our Sirloin packs a bold, beefy flavour.</p><p class="price text-2xl">£15.00</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Filet_Mignon.png" alt="Filet Mignon" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">FILET MIGNON</h3><p class="menu-item-description mt-2">The most tender cut of beef, lean yet succulent, with a delicate, buttery texture.</p><p class="price text-2xl">£19.00</p></div></div>
-                        </div>
-                    </section>
-        
-                    <section id="fish">
-                        <h2 class="font-roboto-slab text-5xl menu-category">Fish</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="menu-item-card"><img src="Food_Images/Salmon_Fillet.png" alt="Salmon Fillet" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SALMON FILLET</h3><p class="menu-item-description mt-2">Rich in natural oils, the fillet stays moist and flaky, delivering a deep, well-rounded flavour.</p><p class="price text-2xl">£10.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Seabass.png" alt="Seabass" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SEABASS</h3><p class="menu-item-description mt-2">This lean, skin-on fillet cooks to a soft, moist texture with a clean, lightly sweet taste.</p><p class="price text-2xl">£12.95</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Sirloin.png" alt="Sirloin" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SIRLOIN</h3><p class="menu-item-description mt-2">Lean muscle, subtle marbling — bold flavour.</p><p class="price text-2xl">£15.00</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Filet_Mignon.png" alt="Filet Mignon" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">FILET MIGNON</h3><p class="menu-item-description mt-2">Tender, lean, buttery texture.</p><p class="price text-2xl">£19.00</p></div></div>
                         </div>
                     </section>
                     
-                    <section id="wings">
-                        <h2 class="font-roboto-slab text-5xl menu-category">Wings</h2>
-                        <div class="bg-383735 rounded-lg overflow-hidden max-w-4xl mx-auto">
-                            <div class="md:grid md:grid-cols-12">
-                                <div class="md:col-span-5"><img src="Food_Images/Wings.png" class="w-full h-56 md:h-full object-cover"></div>
-                                <div class="p-8 flex flex-col justify-center md:col-span-7 text-center md:text-left">
-                                    <h3 class="text-4xl menu-item-title">TURKISH-STYLE WINGS</h3>
-                                    <p class="menu-item-description mt-2">A generous portion of our signature wings, marinated in Turkish spices and grilled to a smoky, crispy perfection.</p>
-                                    <div><p class="price text-2xl">6 Wings - £5.95</p><p class="price text-2xl mt-2">12 Wings - £10.95</p></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
                     <section id="burgers">
                         <h2 class="font-roboto-slab text-5xl menu-category">Burgers</h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                             <div class="menu-item-card"><img src="Food_Images/Beef-Burger.png" alt="Beef Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">BEEF BURGER</h3><p class="menu-item-description mt-2">A succulent beef patty, flame-grilled and seasoned with our house spice blend.</p><p class="price text-2xl">Single: £6.95<span class="text-gray-400 mx-2">|</span>Double: £9.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Chicken-Burger.png" alt="Chicken Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">CHICKEN BURGER</h3><p class="menu-item-description mt-2">Tender chicken breast, marinated and grilled to juicy perfection.</p><p class="price text-2xl">Single: £6.50<span class="text-gray-400 mx-2">|</span>Double: £8.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Jumbo.png" alt="Jumbo Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">JUMBO BURGER</h3><p class="menu-item-description mt-2">A burger with a smashed beef and grilled chicken patty, pickles, lettuce and cheese.</p><p class="price text-2xl">£9.95</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Beef-Burger.png" alt="Beef Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">BEEF BURGER</h3><p class="menu-item-description mt-2">Succulent beef patty, flame‑grilled.</p><p class="price text-2xl">Single: £6.95</p><p class="price text-2xl mt-2">Double: £9.95</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Chicken-Burger.png" alt="Chicken Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">CHICKEN BURGER</h3><p class="menu-item-description mt-2">Marinated breast, juicy perfection.</p><p class="price text-2xl">Single: £6.50</p><p class="price text-2xl mt-2">Double: £8.95</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Jumbo.png" alt="Jumbo Burger" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">JUMBO BURGER</h3><p class="menu-item-description mt-2">Smashed beef &amp; grilled chicken patty.</p><p class="price text-2xl">£9.95</p></div></div>
                         </div>
                     </section>
                     
-                    <section id="signatures">
-                        <h2 class="font-roboto-slab text-5xl menu-category">Our <span class="secondary">Signatures</span></h2>
+                    <section id="fish">
+                        <h2 class="font-roboto-slab text-5xl menu-category">Fish</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="menu-item-card"><img src="Food_Images/Salmon_Fillet.png" alt="Salmon Fillet" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SALMON FILLET</h3><p class="menu-item-description mt-2">Rich oils keep it moist &amp; flaky.</p><p class="price text-2xl">£10.95</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Seabass.png" alt="Seabass" class="w-full h-56 object-cover"><div class="menu-item-content"><h3 class="text-4xl menu-item-title">SEABASS</h3><p class="menu-item-description mt-2">Lean, lightly sweet fillet.</p><p class="price text-2xl">£12.95</p></div></div>
+                        </div>
+                    </section>
+                    
+                    <section id="main-ish">
+                        <h2 class="font-roboto-slab text-5xl menu-category">Main-ish</h2>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                             <div class="menu-item-card flex-col text-center">
-                                <img src="Food_Images/Jacket_Potato.png" class="w-full h-64 object-cover">
+                                <img src="Food_Images/Jacket_Potato.png" alt="Loaded Jacket Potato" class="w-full h-64 object-cover">
                                 <div class="p-8 flex flex-col justify-center flex-grow">
-                                    <h2 class="font-roboto-slab text-4xl menu-item-title"><span class="secondary">Loaded Jacket Potato</span></h2>
-                                    <p class="text-lg mt-2 text-gray-400">Baked spud heaven. Fluffy on the inside, crispy on the outside.</p>
+                                    <h3 class="font-roboto-slab text-4xl menu-item-title"><span class="secondary">Loaded Jacket Potato</span></h3>
+                                    <p class="text-lg mt-2 text-gray-400">Fluffy on the inside, crispy on the outside.</p>
                                     <p class="mt-4 menu-item-description">Loaded with: mozzarella, beans & your choice of shawarma meat.</p>
                                     <p class="price text-2xl">£7.50</p>
                                 </div>
                             </div>
-                             <div class="menu-item-card flex-col text-center">
-                                <img src="Food_Images/Corn.jpg" class="w-full h-64 object-cover">
+                            <div class="menu-item-card flex-col text-center">
+                                <img src="Food_Images/Halloumi.jpg" alt="Halloumi Fries" class="w-full h-64 object-cover">
                                 <div class="p-8 flex flex-col justify-center flex-grow">
-                                    <h2 class="font-roboto-slab text-4xl menu-item-title"><span class="secondary">Corn on The Cob</span></h2>
-                                    <p class="text-lg mt-2 text-gray-400">Persian-Style.</p>
-                                    <p class="mt-4 menu-item-description">Sweet, sour, smokey all at once. It's a Secret.</p>
-                                    <p class="price text-2xl">£2.75</p>
+                                    <h3 class="font-roboto-slab text-4xl menu-item-title"><span class="secondary">Halloumi Fries (6)</span></h3>
+                                    <p class="text-lg mt-2 text-gray-400">Golden, squeaky sticks of joy.</p>
+                                    <p class="mt-4 menu-item-description">Served hot with chilli jam.</p>
+                                    <p class="price text-2xl">£4.50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="signature-sides">
+                        <h2 class="font-roboto-slab text-5xl menu-category">Signature Sides</h2>
+                        <p class="section-description">Grilled-only, chef-curated accompaniments.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Corn.jpg" alt="Corn on the Cob" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">CORN ON THE COB</h3>
+                                    <p class="menu-item-description">Persian-style: sweet, sour & smoky.</p>
+                                    <p class="price text-xl">£2.75</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Avocado.png" alt="Avocado Slices" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">1/2 AVOCADO SLICES</h3>
+                                    <p class="menu-item-description">Drizzled with honey or lime.</p>
+                                    <p class="price text-xl">£2.50</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Grilled_Broccoli.jpg" alt="Charred Broccoli" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">CHARRED BROCCOLI SPEARS</h3>
+                                    <p class="menu-item-description">Finished with lemon & chilli flakes.</p>
+                                    <p class="price text-xl">£3.25</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Grilled_Asparagus.jpg" alt="Grilled Asparagus" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">GRILLED ASPARAGUS</h3>
+                                    <p class="menu-item-description">Tossed in garlic butter, with lemon and parmesan</p>
+                                    <p class="price text-xl">£3.50</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Grilled_Aubergine.jpg" alt="Grilled Aubergine" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">GRILLED AUBERGINE</h3>
+                                    <p class="menu-item-description">Tahini, pomegranate & herbs.</p>
+                                    <p class="price text-xl">£3.75</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Grilled_Peppers.jpg" alt="Grilled Peppers" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">GRILLED PEPPERS</h3>
+                                    <p class="menu-item-description">Sweet mixed peppers, sea salt finish.</p>
+                                    <p class="price text-xl">£2.95</p>
                                 </div>
                             </div>
                         </div>
@@ -491,15 +604,52 @@
                     <section id="sides">
                         <h2 class="font-roboto-slab text-5xl menu-category">More <span class="secondary">Sides</span></h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                            <div class="menu-item-card"><img src="Food_Images/Wedges.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">LOADED FRIES</h3><p class="menu-item-description">Sweet or Regular, with mozzarella</p><p class="price text-xl">£3.95</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Halloumi.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">6 HALLOUMI FRIES</h3><p class="menu-item-description">Served with chilli jam</p><p class="price text-xl">£4.50</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Avocado.png" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">1/2 AVOCADO SLICES</h3><p class="menu-item-description">Drizzled with honey or lime</p><p class="price text-xl">£2.50</p></div></div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Wedges.jpg" alt="Wedges" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">WEDGES</h3>
+                                    <p class="menu-item-description">with mozzarella.</p>
+                                    <p class="price text-xl">£2.50</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Fries.jpg" alt="Fries" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">FRIES</h3>
+                                    <p class="menu-item-description">Sweet or Regular.</p>
+                                    <p class="price text-xl">£1.95</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Mash.jpg" alt="Creamy Mash" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">CREAMY MASH</h3>
+                                    <p class="menu-item-description">Silky potatoes whipped with butter.</p>
+                                    <p class="price text-xl">£2.95</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Tomato_Salad.png" alt="Tomato Salad" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">TOMATO SALAD</h3>
+                                    <p class="menu-item-description">Heritage tomatoes, red onion & herbs.</p>
+                                    <p class="price text-xl">£2.75</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card">
+                                <img src="Food_Images/Slaw.png" alt="Classic Slaw" class="w-full h-40 object-cover">
+                                <div class="menu-item-content">
+                                    <h3 class="text-2xl menu-item-title">CLASSIC SLAW</h3>
+                                    <p class="menu-item-description">Crunchy cabbage & carrot, light mayo.</p>
+                                    <p class="price text-xl">£2.50</p>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     
                     <section id="sauces">
                         <h2 class="font-roboto-slab text-5xl menu-category">Sauces</h2>
-                        <p class="text-center text-gray-400 -mt-8 mb-8">Choose a sauce for any Main, to Drizzle or to Dip.</p>
+                        <p class="text-center text-gray-400 mb-8">Choose a sauce for any Main, to Drizzle or to Dip.</p>
                         <div class="rounded-lg overflow-hidden shadow-lg">
                             <img src="Food_Images/SaucesMain.png" alt="Available Sauces" class="w-full h-auto object-cover">
                         </div>
@@ -513,55 +663,67 @@
                             <p class="text-lg secondary">Extra Dip - <span class="accent font-bold">£0.90</span></p>
                         </div>
                     </section>
-                
+                    
                     <section id="desserts">
                         <h2 class="font-roboto-slab text-5xl menu-category">Fruit <span class="secondary">Desserts</span></h2>
-                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-                            <div class="menu-item-card"><img src="Food_Images/Mango.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">1/2 MANGO</h3><p class="menu-item-description">with Tajín, lime & salt</p><p class="price text-xl">£4.00</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Pineapple.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">4 PINEAPPLE SLICES</h3><p class="menu-item-description">with cinnamon sugar</p><p class="price text-xl">£3.50</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Peach.jpg" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">PEACH</h3><p class="menu-item-description">drizzled with honey</p><p class="price text-xl">£3.50</p></div></div>
-                            <div class="menu-item-card"><img src="Food_Images/Apple.png" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">APPLE</h3><p class="menu-item-description">tossed in cinnamon sugar</p><p class="price text-xl">£3.00</p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                            <div class="menu-item-card"><img src="Food_Images/Mango.jpg" alt="Mango" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">1/2 MANGO</h3><p class="menu-item-description">with Tajín, lime & salt</p><p class="price text-xl">£4.00</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Pineapple.jpg" alt="Pineapple" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">4 PINEAPPLE SLICES</h3><p class="menu-item-description">with cinnamon sugar</p><p class="price text-xl">£3.50</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Peach.jpg" alt="Peach" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">PEACH</h3><p class="menu-item-description">drizzled with honey</p><p class="price text-xl">£3.50</p></div></div>
+                            <div class="menu-item-card"><img src="Food_Images/Apple.png" alt="Apple" class="w-full h-40 object-cover"><div class="menu-item-content"><h3 class="text-2xl menu-item-title">APPLE</h3><p class="menu-item-description">tossed in cinnamon sugar</p><p class="price text-xl">£3.00</p></div></div>
                         </div>
                     </section>
                     
-                     <section id="plantain-dessert">
-                         <div class="max-w-4xl mx-auto bg-383735 rounded-lg overflow-hidden">
+                    <section id="plantain-dessert">
+                        <div class="max-w-4xl mx-auto bg-[#383735] rounded-lg overflow-hidden">
                             <div class="md:grid md:grid-cols-12">
-                                 <div class="p-8 flex flex-col justify-center md:col-span-7 text-center md:text-left">
+                                <div class="p-8 flex flex-col justify-center md:col-span-7 text-center md:text-left">
                                     <h2 class="font-roboto-slab text-5xl menu-item-title"><span class="secondary">Grilled Plantain</span></h2>
-                                    <p class="text-xl mt-2 text-gray-400">Warm, and comforting. Served with a scoop of vanilla ice cream.</p>
+                                    <p class="text-xl mt-2 text-gray-400">Warm and comforting. Served with a scoop of vanilla ice cream.</p>
                                     <p class="price text-4xl">£4.00</p>
                                 </div>
                                 <div class="md:col-span-5">
-                                    <img src="Food_Images/Plantain.png" class="w-full h-56 md:h-full object-cover">
+                                    <img src="Food_Images/Plantain.png" alt="Grilled Plantain" class="w-full h-56 md:h-full object-cover">
                                 </div>
                             </div>
                         </div>
-                     </section>
-        
+                    </section>
+                    
                     <section id="mojitos">
                         <h2 class="font-roboto-slab text-5xl menu-category">Mojitos <span class="text-lg text-gray-400 font-lato normal-case tracking-normal">(non-alc.)</span></h2>
-                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-8">
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Classic_Lime.png" class="w-full h-full object-cover" alt="Classic Lemon-Mint Mojito"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">CLASSIC LEMON-MINT</h3><p class="price text-xl mt-1">£4.50</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Strawberry_Mojito.png" class="w-full h-full object-cover" alt="Strawberry Mojito"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">STRAWBERRY</h3><p class="price text-xl mt-1">£4.75</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Passionfruit.png" class="w-full h-full object-cover" alt="Passion-Fruit Mojito"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">PASSION-FRUIT</h3><p class="price text-xl mt-1">£4.75</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Redbull.png" class="w-full h-full object-cover" alt="Redbull Mojito"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">REDBULL</h3><p class="price text-xl mt-1">£5.25</p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-8">
+                            <div class="text-center group">
+                                <div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Classic_Lime.png" alt="Classic Lemon-Mint Mojito" class="w-full h-full object-cover"></div>
+                                <div class="mt-4"><h3 class="text-2xl menu-item-title">CLASSIC LEMON-MINT</h3><p class="price text-xl mt-1">£4.50</p></div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Strawberry_Mojito.png" alt="Strawberry Mojito" class="w-full h-full object-cover"></div>
+                                <div class="mt-4"><h3 class="text-2xl menu-item-title">STRAWBERRY</h3><p class="price text-xl mt-1">£4.75</p></div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Passionfruit.png" alt="Passion-Fruit Mojito" class="w-full h-full object-cover"></div>
+                                <div class="mt-4"><h3 class="text-2xl menu-item-title">PASSION-FRUIT</h3><p class="price text-xl mt-1">£4.75</p></div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Redbull.png" alt="Redbull Mojito" class="w-full h-full object-cover"></div>
+                                <div class="mt-4"><h3 class="text-2xl menu-item-title">REDBULL</h3><p class="price text-xl mt-1">£5.25</p></div>
+                            </div>
                         </div>
                     </section>
                     
                     <section id="milkshakes">
                         <h2 class="font-roboto-slab text-5xl menu-category">Milkshakes</h2>
-                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-8">
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Chocolate_Shake.jpg" class="w-full h-full object-cover" alt="Double Chocolate Milkshake"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">DOUBLE CHOCOLATE</h3><p class="price text-xl mt-1">£5.95</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Vanilla_Shake.png" class="w-full h-full object-cover" alt="Vanilla & Cookie Milkshake"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">VANILLA & COOKIE</h3><p class="price text-xl mt-1">£5.95</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/StrawberryCheesecake_Shake.png" class="w-full h-full object-cover" alt="Strawberry Cheesecake Milkshake"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">STRAWBERRY CHEESECAKE</h3><p class="price text-xl mt-1">£6.45</p></div></div>
-                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Peanutbutter_Shake.png" class="w-full h-full object-cover" alt="Peanut Butter Banana Milkshake"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">PEANUT BUTTER BANANA</h3><p class="price text-xl mt-1">£6.45</p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-8">
+                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Chocolate_Shake.jpg" alt="Double Chocolate Milkshake" class="w-full h-full object-cover"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">DOUBLE CHOCOLATE</h3><p class="price text-xl mt-1">£5.95</p></div></div>
+                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Vanilla_Shake.png" alt="Vanilla & Cookie Milkshake" class="w-full h-full object-cover"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">VANILLA & COOKIE</h3><p class="price text-xl mt-1">£5.95</p></div></div>
+                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/StrawberryCheesecake_Shake.png" alt="Strawberry Cheesecake Milkshake" class="w-full h-full object-cover"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">STRAWBERRY CHEESECAKE</h3><p class="price text-xl mt-1">£6.45</p></div></div>
+                            <div class="text-center group"><div class="h-80 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"><img src="Food_Images/Peanutbutter_Shake.png" alt="Peanut Butter Banana Milkshake" class="w-full h-full object-cover"></div><div class="mt-4"><h3 class="text-2xl menu-item-title">PEANUT BUTTER BANANA</h3><p class="price text-xl mt-1">£6.45</p></div></div>
                         </div>
                     </section>
-        
+                    
                     <section id="drinks">
                         <h2 class="font-roboto-slab text-5xl menu-category">Soft Drinks</h2>
-                         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mt-8 text-center">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mt-8 text-center">
                             <div><h3 class="text-2xl menu-item-title">AYRAN</h3><p class="price text-xl">£1.80</p></div>
                             <div><h3 class="text-2xl menu-item-title">ORANGE JUICE</h3><p class="price text-xl">£1.80</p></div>
                             <div><h3 class="text-2xl menu-item-title">SAN PELLEGRINO</h3><p class="price text-xl">£2.00</p></div>
@@ -577,7 +739,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div id="franchise" class="page-section">
             <section class="py-20 bg-charcoal-light">
                 <div class="container mx-auto px-6">
@@ -595,64 +757,63 @@
                         <h2 class="font-roboto-slab text-4xl text-center primary">Franchise Application & Inquiries</h2>
                         <div class="mt-8 text-lg text-gray-300 space-y-8 text-left">
                             <p>To apply, please copy the questions below and email your detailed answers to <a href="mailto:jamali@robogrill.co" class="secondary hover:underline">jamali@robogrill.co</a>. We look forward to learning more about you.</p>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">1. Name & Contact</h3>
                                 <p class="text-gray-400">– Your full name, phone number, and email address.</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">2. Territory & Why</h3>
-                                <p class="text-gray-400">– What city or region do you want, and why is it the perfect spot for a RoboGrill?</p>
+                                <p class="text-gray-400">– What city or region do you want, and why is it the perfect spot for a Grill to Go?</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">3. Your Track Record</h3>
                                 <p class="text-gray-400">– In 2–3 sentences, sum up your most relevant food-service or retail management wins.</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">4. Financials</h3>
                                 <p class="text-gray-400">– State your total net worth AND liquid capital available. (Keep it simple: “£X net worth, £Y ready to invest.”)</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">5. The X-Factor</h3>
-                                <p class="text-gray-400">– What makes you the perfect RoboGrill operator? (Give us your 3-sentence pitch.)</p>
+                                <p class="text-gray-400">– What makes you the perfect Grill to Go operator? (Give us your 3-sentence pitch.)</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">6. Timeline & Commitment</h3>
                                 <p class="text-gray-400">– When could you realistically open your doors? Any other commitments we should know about?</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">7. Support Needs</h3>
                                 <p class="text-gray-400">– What’s the one area you’ll want our help most? (Training, marketing, tech setup, ops, etc.)</p>
                             </div>
-
+                            
                             <div>
                                 <h3 class="font-roboto-slab text-2xl secondary mb-2">8. Referral Source</h3>
                                 <p class="text-gray-400">– How did you hear about us? (LinkedIn, friend, billboard, carrier pigeon…)</p>
                             </div>
-
-                            <div>
-                                <h3 class="font-roboto-slab text-2xl secondary mb-2">9. Next Steps Expectation</h3>
-                                <p class="text-gray-400">– Please include the following sentence in your email to acknowledge you have read it: <strong class="text-gray-200">“I understand I’ll hear back within 7 business days.”</strong></p>
+                            
+                            <div class="text-center pt-4">
+                                <p class="text-gray-300">Our franchise team carefully reviews every application. We appreciate you taking the time to apply and will be in touch regarding the next steps within <strong class="text-white">7-10 business days.</strong></p>
                             </div>
-
+                            
                             <p class="text-center pt-6">Please send your completed application to:</p>
                             <p class="text-center font-bold text-2xl secondary tracking-wider">
                                 <a href="mailto:jamali@robogrill.co" class="hover:underline">jamali@robogrill.co</a>
                             </p>
-
+                            
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-
+    
     <footer class="bg-charcoal border-t border-gray-800 py-12">
         <div class="container mx-auto px-6 text-center text-gray-400">
             <div class="mb-6"><a href="#" class="font-roboto-slab text-3xl text-white tracking-wider" onclick="showPage('home')">GRILL TO GO</a></div>
@@ -664,10 +825,10 @@
             <p>© 2025 Grill to Go. All Rights Reserved.</p>
         </div>
     </footer>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
+            
             // --- DOM Element Selection ---
             const pages = document.querySelectorAll('.page-section');
             const navLinks = document.querySelectorAll('.nav-link[data-page]');
@@ -683,7 +844,7 @@
                 pages.forEach(page => page.classList.remove('active'));
                 const activePage = document.getElementById(pageId);
                 if (activePage) activePage.classList.add('active');
-
+                
                 // Update active state for navigation links
                 navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('data-page') === pageId));
                 
@@ -697,21 +858,21 @@
                 } else {
                     window.scrollTo(0, 0);
                 }
-
+                
                 // Always hide mobile menu after a selection
                 mobileMenu.classList.add('hidden');
             };
-
+            
             // --- Initial Page Setup ---
             showPage('home');
-
+            
             // --- Event Listeners ---
-
+            
             // Mobile menu toggle
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-
+            
             // Typewriter effect completion
             if (typewriterText) {
                 typewriterText.addEventListener('animationend', (e) => {
@@ -720,7 +881,7 @@
                     }
                 });
             }
-
+            
             // Intersection Observer for scroll animations
             const scrollObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -730,7 +891,7 @@
                     }
                 });
             }, { threshold: 0.1 });
-
+            
             elementsToReveal.forEach(el => scrollObserver.observe(el));
         });
     </script>
